@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "mysql": "npm -i mysql", 
     "start":"node index.js"
   },
   "author": "Prasath from PMS",
