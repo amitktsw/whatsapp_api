@@ -12,7 +12,7 @@ const con=mysql.createConnection({
 con.connect(function(err){
     if(err) throw err;
     console.log("database connected");
-    var sql = "INSERT INTO received_messages (to,from,message) VALUES ?";
+    var sql = "INSERT INTO received_messages (message_to,message_from,message) VALUES ?";
 })
 
 require('dotenv').config();
