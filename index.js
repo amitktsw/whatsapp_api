@@ -12,7 +12,7 @@ const con=mysql.createConnection({
 con.connect(function(err){
     if(err) throw err;
     console.log("database connected");
-    var sql = "INSERT INTO received_messages (message_to,message_from,message) VALUES ?";
+    
 })
 
 require('dotenv').config();
@@ -66,6 +66,7 @@ app.post("/webhook",(req,res)=>{ //i want some
                console.log("from: "+from);
                console.log("boady param: "+msg_body);
             
+               var sql = "INSERT INTO received_messages (message_to,message_from,message) VALUES ?";
                var values=[[phon_no_id,from,msg_body]]
                con.query(sql,[values])
             
