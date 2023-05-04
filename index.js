@@ -3,7 +3,7 @@ const body_parser=require("body-parser");
 const axios=require("axios");
 const mysql=require("mysql");
 const con=mysql.createConnection({
-    host:"162.144.180.63",
+    host:"162.144.180.60",
     user:"infoskuz_crmtest",
     password:"CrmCheck@123#",
     database:"infoskuz_whatsapp"
