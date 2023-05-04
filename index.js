@@ -67,10 +67,7 @@ app.post("/webhook",(req,res)=>{ //i want some
                console.log("boady param: "+msg_body);
             
                var values=[[phon_no_id,from,msg_body]]
-               con.query(sql,[values],funtion(err,result){
-                         if(err) throw err;
-                         console.log("record inserted:",result.affectedRows)
-               })
+               con.query(sql,[values])
             
 
                axios({
