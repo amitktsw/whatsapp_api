@@ -1,6 +1,20 @@
 const express=require("express");
 const body_parser=require("body-parser");
 const axios=require("axios");
+const mysql=require("mysql");
+const con=mysql.createConnection({
+    host:"162.144.180.63",
+    user:"crmtest",
+    password:"CrmCheck@123#",
+    database:"infoskuz_whatsapp"
+});
+
+con.connect(function(err){
+    if(err) throw err;
+    console.log("database connected");
+    var sql = "INSERT INTO received_messages (to,from,message) VALUES ?";
+})
+
 require('dotenv').config();
 
 const app=express().use(body_parser.json());
@@ -51,6 +65,13 @@ app.post("/webhook",(req,res)=>{ //i want some
                console.log("phone number: "+phon_no_id);
                console.log("from: "+from);
                console.log("boady param: "+msg_body);
+            
+               var values=[[phon_no_id,from,msg_body]]
+               con.query(sql,[values],funtion(err,result){
+                         if(err) throw err;
+                         console.log("record inserted:",result.affectedRows)
+               })
+            
 
                axios({
                    method:"POST",
