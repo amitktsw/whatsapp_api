@@ -4,7 +4,7 @@ const axios=require("axios");
 const mysql=require("mysql");
 const con=mysql.createConnection({
     host:"162.144.180.63",
-    user:"crmtest",
+    user:"infoskuz_crmtest",
     password:"CrmCheck@123#",
     database:"infoskuz_whatsapp"
 });
