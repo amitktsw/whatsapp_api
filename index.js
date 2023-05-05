@@ -3,7 +3,7 @@ const body_parser=require("body-parser");
 const axios=require("axios");
 const mysql=require("mysql");
 const con=mysql.createConnection({
-    host:"infostructure.in",
+    host:"https://www.infostructure.in",
     user:"infoskuz_crmtest",
     password:"CrmCheck@123#",
     database:"infoskuz_whatsapp"
@@ -15,6 +15,7 @@ con.connect(function(err){
     
 });
 
+/*
 require('dotenv').config();
 
 const app=express().use(body_parser.json());
@@ -95,7 +96,7 @@ app.post("/webhook",(req,res)=>{ //i want some
     }
 
 });
-
+*/
 app.get("/",(req,res)=>{
     res.status(200).send("hello this is webhook setup");
 });
