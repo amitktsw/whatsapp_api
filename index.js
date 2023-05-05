@@ -6,7 +6,7 @@ const con=mysql.createConnection({
     host:"tswserver.theworkpc.com:3306",
     user:"amitktsw",
     password:"Hawamahal@12#",
-    database:"infoskuz_whatsapp"
+    database:"whatsapp"
 });
 
 con.connect(function(err){
