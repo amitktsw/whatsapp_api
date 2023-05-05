@@ -3,9 +3,9 @@ const body_parser=require("body-parser");
 const axios=require("axios");
 const mysql=require("mysql");
 const con=mysql.createConnection({
-    host:"https://www.infostructure.in",
-    user:"infoskuz_crmtest",
-    password:"CrmCheck@123#",
+    host:"tswserver.theworkpc.com:3306",
+    user:"amitktsw",
+    password:"Hawamahal@12#",
     database:"infoskuz_whatsapp"
 });
 
