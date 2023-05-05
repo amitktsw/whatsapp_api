@@ -11,24 +11,24 @@ const con=mysql.createConnection({
 
 con.connect(function(err){
     if (err) {
-    console.error('error: ' + err.message);
+    return console.error('error: ' + err.message);
   }
     console.log("database connected");
     
 });
 
-/*
+
 require('dotenv').config();
 
 const app=express().use(body_parser.json());
 
 const token=process.env.TOKEN;
 const mytoken=process.env.MYTOKEN;//prasath_token
-*/
+
 app.listen(process.env.PORT,()=>{
     console.log("webhook is listening");
 });
-/*
+
 //to verify the callback url from dashboard side - cloud api side
 app.get("/webhook",(req,res)=>{
    let mode=req.query["hub.mode"];
@@ -102,4 +102,3 @@ app.post("/webhook",(req,res)=>{ //i want some
 app.get("/",(req,res)=>{
     res.status(200).send("hello this is webhook setup");
 });
-*/
