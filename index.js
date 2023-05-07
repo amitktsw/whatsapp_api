@@ -4,7 +4,7 @@ const axios=require("axios");
 const mysql=require("mysql");
 const con=mysql.createConnection({
     host:"tswserver.theworkpc.com",
-    port:3306,
+    port:"3306",
     user:"amitktsw",
     password:"Hawamahal@12#",
     database:"whatsapp"
