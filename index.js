@@ -3,9 +3,9 @@ const body_parser=require("body-parser");
 const axios=require("axios");
 const mysql=require("mysql");
 const con=mysql.createConnection({
-    host:"tswserver.theworkpc.com";
-    user:"amitktsw";
-    password:"Hawamahal@12#";
+    host:"tswserver.theworkpc.com"
+    user:"amitktsw"
+    password:"Hawamahal@12#"
     database:"whatsapp"
 });
 
