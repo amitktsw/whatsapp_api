@@ -70,6 +70,7 @@ app.post("/webhook",(req,res)=>{ //i want some
                console.log("boady param: "+msg_body);
             
                var sql = "INSERT INTO received_messages (message_to,message_from,message) VALUES ?";
+               var values=[phon_no_id,from,msg_body];
                con.query(sql,[[[phon_no_id,from,msg_body]]], function (err, result) {  
                 if (err) throw err;  
                 console.log("1 record inserted");  
