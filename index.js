@@ -5,7 +5,7 @@ const mysql=require("mysql");
 const con=mysql.createConnection({
     host:"122.180.254.41",
     user:"info_crmtest",
-    password:"Hawamahal@123",
+    password:"Hawamahal123",
     database:"info_whatsapp"
 });
 
