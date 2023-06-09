@@ -66,7 +66,7 @@ app.post("/webhook",(req,res)=>{
   var hour = d.getHours();
   var min = (d.getMinutes() < 10 ? '0' : '') + d.getMinutes();
   var sec = (d.getSeconds() < 10 ? '0' : '') + d.getSeconds();
-  var time = date + '. ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+  var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
 
 
                console.log("phone number: "+phon_no_id);
