@@ -58,13 +58,21 @@ app.post("/webhook",(req,res)=>{
                let msg_body = body_param.entry[0].changes[0].value.messages[0].text.body;
                let epochTimeStamp = body_param.entry[0].changes[0].value.messages[0].timestamp; 
             
-
+  var d = new Date(epochTimeStamp * 1000);
+  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var year = d.getFullYear();
+  var month = months[d.getMonth()];
+  var date = d.getDate();
+  var hour = d.getHours();
+  var min = (d.getMinutes() < 10 ? '0' : '') + d.getMinutes();
+  var sec = (d.getSeconds() < 10 ? '0' : '') + d.getSeconds();
+  var time = date + '. ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
 
 
                console.log("phone number: "+phon_no_id);
                console.log("from: "+from);
                console.log("boady param: "+msg_body);
-               console.log("TimeStamp: "+epochTimeStamp);
+               console.log("TimeStamp: "+time);
           
                con.connect(function(err){
                  if (err) {
