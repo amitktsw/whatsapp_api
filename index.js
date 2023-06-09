@@ -56,10 +56,24 @@ app.post("/webhook",(req,res)=>{
                let phon_no_id=body_param.entry[0].changes[0].value.metadata.phone_number_id;
                let from = body_param.entry[0].changes[0].value.messages[0].from; 
                let msg_body = body_param.entry[0].changes[0].value.messages[0].text.body;
+               let epochTimeStamp = body_param.entry[0].changes[0].value.metadata.timestamp;
+            
+
+  var d = new Date(epochTimeStamp * 1000);
+  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var year = d.getFullYear();
+  var month = months[d.getMonth()];
+  var date = d.getDate();
+  var hour = d.getHours();
+  var min = (d.getMinutes() < 10 ? '0' : '') + d.getMinutes();
+  var sec = (d.getSeconds() < 10 ? '0' : '') + d.getSeconds();
+  var time = date + '. ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+
 
                console.log("phone number: "+phon_no_id);
                console.log("from: "+from);
                console.log("boady param: "+msg_body);
+               console.log("TimeStamp: "+time);
           
                con.connect(function(err){
                  if (err) {
@@ -69,9 +83,9 @@ app.post("/webhook",(req,res)=>{
     
                 });
             
-               var sql = "INSERT INTO received_messages (msg_to,msg_from,msg) VALUES ?";
+               var sql = "INSERT INTO received_messages (msg_to,msg_from,msg,dd_ts) VALUES ?";
                var values=[phon_no_id,from,msg_body];
-               con.query(sql,[[[phon_no_id,from,msg_body]]], function (err, result) {  
+               con.query(sql,[[[phon_no_id,from,msg_body,time]]], function (err, result) {  
                 if (err) throw err;  
                 console.log("1 record inserted");  
                });
