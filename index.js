@@ -83,7 +83,7 @@ app.post("/webhook",(req,res)=>{
     
                 });
             
-               var sql = "INSERT INTO received_messages (msg_to,msg_from,msg,dd_ts) VALUES ?";
+               var sql = "INSERT INTO received_messages (msg_to,msg_from,msg,ddtm) VALUES ?";
                var values=[phon_no_id,from,msg_body];
                con.query(sql,[[[phon_no_id,from,msg_body,time]]], function (err, result) {  
                 if (err) throw err;  
