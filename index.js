@@ -8,7 +8,13 @@ const con=mysql.createConnection({
     password:"Hawamahal123",
     database:"infoskuz_whatsapp"
 });
-
+               con.connect(function(err){
+                 if (err) {
+                  return console.error('error: ' + err.message);
+                  }
+                console.log("database connected");
+    
+                });
 
 require('dotenv').config();
 
@@ -74,13 +80,7 @@ app.post("/webhook",(req,res)=>{
                console.log("boady param: "+msg_body);
                console.log("TimeStamp: "+time);
           
-               con.connect(function(err){
-                 if (err) {
-                  return console.error('error: ' + err.message);
-                  }
-                console.log("database connected");
-    
-                });
+
             
                var sql = "INSERT INTO received_messages (msg_to,msg_from,msg) VALUES ?";
                var values=[phon_no_id,from,msg_body];
@@ -88,7 +88,7 @@ app.post("/webhook",(req,res)=>{
                 if (err) throw err;  
                 console.log("1 record inserted");  
                });
-               con.end();
+             
             
 
                axios({
