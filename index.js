@@ -61,12 +61,12 @@ app.post("/webhook",(req,res)=>{
   var d = new Date(epochTimeStamp * 1000);
   var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   var year = d.getFullYear();
-  var month = months[d.getMonth()];
+  var month = d.getMonth()+1;
   var date = d.getDate();
   var hour = d.getHours();
   var min = (d.getMinutes() < 10 ? '0' : '') + d.getMinutes();
   var sec = (d.getSeconds() < 10 ? '0' : '') + d.getSeconds();
-  var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+  var time = year + '-' + month + '-' + date + ' ' + hour + ':' + min + ':' + sec ;
 
 
                console.log("phone number: "+phon_no_id);
