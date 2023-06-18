@@ -3,10 +3,10 @@ const body_parser=require("body-parser");
 const axios=require("axios");
 const mysql=require("mysql");
 const con=mysql.createConnection({
-    host:"122.180.254.41",
-    user:"info_crmtest",
+    host:"infostructure.in",
+    user:"infoskuz_crmtest",
     password:"Hawamahal123",
-    database:"info_whatsapp"
+    database:"infoskuz_whatsapp"
 });
 
 
