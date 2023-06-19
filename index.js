@@ -60,8 +60,15 @@ app.post("/webhook",(req,res)=>{
             body_param.entry[0].changes[0].value.messages[0]  
             ){
                let phon_no_id=body_param.entry[0].changes[0].value.metadata.phone_number_id;
-               let from = body_param.entry[0].changes[0].value.messages[0].from; 
+               let from = body_param.entry[0].changes[0].value.messages[0].from;
+               let type = body_param.entry[0].changes[0].value.messages[0].type;
+            if type=="text"{
                let msg_body = body_param.entry[0].changes[0].value.messages[0].text.body;
+            }
+            if type=="image"{
+               let imgid = body_param.entry[0].changes[0].value.messages[0].image.id;
+               let caption = body_param.entry[0].changes[0].value.messages[0].image.caption;
+            }
                let epochTimeStamp = body_param.entry[0].changes[0].value.messages[0].timestamp; 
             
   var d = new Date(epochTimeStamp * 1000);
@@ -77,7 +84,9 @@ app.post("/webhook",(req,res)=>{
 
                console.log("phone number: "+phon_no_id);
                console.log("from: "+from);
-               console.log("boady param: "+msg_body);
+               if msg_body{console.log("boady param: "+msg_body);}
+            if imgid{console.log("body param - imageID: "+imgid);
+                       console.log("body param - caption: "+caption);}
                console.log("TimeStamp: "+time);
           
 
