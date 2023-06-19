@@ -69,6 +69,8 @@ app.post("/webhook",(req,res)=>{
             else{
                let msg_body = body_param.entry[0].changes[0].value.messages[0].text.body;
             }
+            }else{
+               let msg_body = body_param.entry[0].changes[0].value.messages[0].text.body;
             }
                
                let epochTimeStamp = body_param.entry[0].changes[0].value.messages[0].timestamp; 
