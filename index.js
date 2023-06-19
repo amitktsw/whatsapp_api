@@ -85,9 +85,14 @@ app.post("/webhook",(req,res)=>{
 
                console.log("phone number: "+phon_no_id);
                console.log("from: "+from);
-               console.log("boady param: "+msg_body);
+               
+            if body_param.entry[0].changes[0].value.messages[1]{
+                if body_param.entry[0].changes[0].value.messages[1].type="image"{
                console.log("body param - imageID: "+imgid);
                console.log("body param - caption: "+caption);
+                }else{
+                console.log("boady param: "+msg_body);
+                }
                console.log("TimeStamp: "+time);
           
 
