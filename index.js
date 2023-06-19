@@ -63,7 +63,10 @@ app.post("/webhook",(req,res)=>{
                let from = body_param.entry[0].changes[0].value.messages[0].from;
                if (body_param.entry[0].changes[0].value.messages[0].type=="image"){
                     var imgid = body_param.entry[0].changes[0].value.messages[0].image.id;
-                    var caption = body_param.entry[0].changes[0].value.messages[0].image.caption;
+                    var msg_body = body_param.entry[0].changes[0].value.messages[0].image.caption;
+                }else if (body_param.entry[0].changes[0].value.messages[0].type=="document"){
+                    var docid = body_param.entry[0].changes[0].value.messages[0].document.id;
+                    var msg_body = body_param.entry[0].changes[0].value.messages[0].document.caption;
                 }else{
                     var msg_body = body_param.entry[0].changes[0].value.messages[0].text.body;
                 }
@@ -86,7 +89,10 @@ app.post("/webhook",(req,res)=>{
                
                 if (body_param.entry[0].changes[0].value.messages[0].type=="image"){
                     console.log("body param - imageID: "+imgid);
-                    console.log("body param - caption: "+caption);
+                    console.log("body param - caption: "+msg_body);
+                }else if (body_param.entry[0].changes[0].value.messages[0].type=="document"){
+                    console.log("body param - imageID: "+docid);
+                    console.log("body param - caption: "+msg_body);
                 }else{
                 console.log("oady param: "+msg_body);
                 }
