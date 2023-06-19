@@ -90,7 +90,7 @@ app.post("/webhook",(req,res)=>{
                 if (body_param.entry[0].changes[0].value.messages[1].type="image"){
                console.log("body param - imageID: "+imgid);
                console.log("body param - caption: "+caption);
-                }else{
+                }}else{
                 console.log("boady param: "+msg_body);
                 }
                console.log("TimeStamp: "+time);
