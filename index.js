@@ -127,7 +127,7 @@ var attachid="";
                        messaging_product:"whatsapp",
                        to:from,
                        text:{
-                           body:"Hi... "
+                           body:"Hi..."
                        }
                    },
                    headers:{
@@ -135,7 +135,6 @@ var attachid="";
                    }
 
                });
-            
 
                res.sendStatus(200);
             }else{
