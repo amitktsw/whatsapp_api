@@ -66,8 +66,9 @@ app.post("/webhook",(req,res)=>{
                     let imgid = body_param.entry[0].changes[0].value.messages[0].image.id;
                     let caption = body_param.entry[0].changes[0].value.messages[0].image.caption;
                 }
-            }else{
+            else{
                let msg_body = body_param.entry[0].changes[0].value.messages[0].text.body;
+            }
             }
                
                let epochTimeStamp = body_param.entry[0].changes[0].value.messages[0].timestamp; 
@@ -90,9 +91,9 @@ app.post("/webhook",(req,res)=>{
                 if (body_param.entry[0].changes[0].value.messages[1].type="image"){
                console.log("body param - imageID: "+imgid);
                console.log("body param - caption: "+caption);
-                }}else{
+                }else{
                 console.log("boady param: "+msg_body);
-                }
+                }}
                console.log("TimeStamp: "+time);
           
 
