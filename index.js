@@ -88,6 +88,8 @@ app.post("/webhook",(req,res)=>{
   var min = (d.getMinutes() < 10 ? '0' : '') + d.getMinutes();
   var sec = (d.getSeconds() < 10 ? '0' : '') + d.getSeconds();
   var time = year + '-' + month + '-' + date + ' ' + hour + ':' + min + ':' + sec ;
+            
+var attachid="";
 
 
                console.log("phone number: "+phon_no_id);
@@ -96,9 +98,11 @@ app.post("/webhook",(req,res)=>{
                 if (body_param.entry[0].changes[0].value.messages[0].type=="image"){
                     console.log("body param - imageID: "+imgid);
                     console.log("body param - caption: "+msg_body);
+                    attachid=imgid;
                 }else if (body_param.entry[0].changes[0].value.messages[0].type=="document"){
                     console.log("body param - docid: "+docid);
                     console.log("body param - caption: "+msg_body);
+                    attachid=docid;
                 }else{
                 console.log("oady param: "+msg_body);
                 }
@@ -107,7 +111,7 @@ app.post("/webhook",(req,res)=>{
           
 
             
-               var sql = 'INSERT INTO received_messages (msg_to,msg_from,msg) VALUES ("'+phon_no_id+'" ,"'+from+'" ,"'+msg_body+'")';
+               var sql = 'INSERT INTO received_messages (msg_to,msg_from,msg,attach) VALUES ("'+phon_no_id+'" ,"'+from+'" ,"'+msg_body+'" ,"'+attachid+'")';
                //var values=[phon_no_id,from,msg_body];
                con.query(sql, function (err, result) {  
                 if (err) throw err;  
