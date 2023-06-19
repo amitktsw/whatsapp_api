@@ -133,8 +133,8 @@ app.post("/webhook",(req,res)=>{
                });
             
 
-            if (img_id){
-                let url = 'https://graph.facebook.com/v14.0/'+img_id+'?access_token='+token
+            if (imgid){
+                let url = 'https://graph.facebook.com/v14.0/'+imgid+'?access_token='+token
                 axios.get(url).then(res => {
                     console.log(res.data)
                    }).catch(error => {
