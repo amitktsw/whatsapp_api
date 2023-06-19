@@ -15,7 +15,7 @@ const con=mysql.createConnection({
                 console.log("database connected");
     
                 });
-con.close();
+
 
 require('dotenv').config();
 
