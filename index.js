@@ -61,17 +61,12 @@ app.post("/webhook",(req,res)=>{
             ){
                let phon_no_id=body_param.entry[0].changes[0].value.metadata.phone_number_id;
                let from = body_param.entry[0].changes[0].value.messages[0].from;
-            if (body_param.entry[0].changes[0].value.messages[1]){
-                if (body_param.entry[0].changes[0].value.messages[1].type="image"){
+               if (body_param.entry[0].changes[0].value.messages[1] && body_param.entry[0].changes[0].value.messages[1].type="image"){
                     let imgid = body_param.entry[0].changes[0].value.messages[0].image.id;
                     let caption = body_param.entry[0].changes[0].value.messages[0].image.caption;
+                }else{
+                    let msg_body = body_param.entry[0].changes[0].value.messages[0].text.body;
                 }
-            else{
-               let msg_body = body_param.entry[0].changes[0].value.messages[0].text.body;
-            }
-            }else{
-               let msg_body = body_param.entry[0].changes[0].value.messages[0].text.body;
-            }
                
                let epochTimeStamp = body_param.entry[0].changes[0].value.messages[0].timestamp; 
             
@@ -89,13 +84,13 @@ app.post("/webhook",(req,res)=>{
                console.log("phone number: "+phon_no_id);
                console.log("from: "+from);
                
-            if (body_param.entry[0].changes[0].value.messages[1]){
-                if (body_param.entry[0].changes[0].value.messages[1].type="image"){
-               console.log("body param - imageID: "+imgid);
-               console.log("body param - caption: "+caption);
+                if (body_param.entry[0].changes[0].value.messages[1] && body_param.entry[0].changes[0].value.messages[1].type="image"){
+                    console.log("body param - imageID: "+imgid);
+                    console.log("body param - caption: "+caption);
                 }else{
                 console.log("boady param: "+msg_body);
-                }}
+                }
+            
                console.log("TimeStamp: "+time);
           
 
