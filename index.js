@@ -62,11 +62,10 @@ app.post("/webhook",(req,res)=>{
                let phon_no_id=body_param.entry[0].changes[0].value.metadata.phone_number_id;
                let from = body_param.entry[0].changes[0].value.messages[0].from;
                if (body_param.entry[0].changes[0].value.messages[0].type=="image"){
-                    let imgid = body_param.entry[0].changes[0].value.messages[0].image.id;
-                    let caption = body_param.entry[0].changes[0].value.messages[0].image.caption;
+                    var imgid = body_param.entry[0].changes[0].value.messages[0].image.id;
+                    var caption = body_param.entry[0].changes[0].value.messages[0].image.caption;
                 }else{
-                    let msg_body = body_param.entry[0].changes[0].value.messages[0].text.body;
-                    console.log("oady param: "+msg_body);
+                    var msg_body = body_param.entry[0].changes[0].value.messages[0].text.body;
                 }
                
                let epochTimeStamp = body_param.entry[0].changes[0].value.messages[0].timestamp; 
