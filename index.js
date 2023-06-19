@@ -63,10 +63,16 @@ app.post("/webhook",(req,res)=>{
                let from = body_param.entry[0].changes[0].value.messages[0].from;
                if (body_param.entry[0].changes[0].value.messages[0].type=="image"){
                     var imgid = body_param.entry[0].changes[0].value.messages[0].image.id;
-                    var msg_body = body_param.entry[0].changes[0].value.messages[0].image.caption;
+                    var msg_body = "";
+                    if(body_param.entry[0].changes[0].value.messages[0].image.caption){
+                        msg_body = body_param.entry[0].changes[0].value.messages[0].document.caption;
+                    }
                 }else if (body_param.entry[0].changes[0].value.messages[0].type=="document"){
                     var docid = body_param.entry[0].changes[0].value.messages[0].document.id;
-                    var msg_body = body_param.entry[0].changes[0].value.messages[0].document.caption;
+                    var msg_body = "";
+                    if(body_param.entry[0].changes[0].value.messages[0].document.caption){
+                        msg_body = body_param.entry[0].changes[0].value.messages[0].document.caption;
+                    }
                 }else{
                     var msg_body = body_param.entry[0].changes[0].value.messages[0].text.body;
                 }
