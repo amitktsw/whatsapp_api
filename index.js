@@ -62,10 +62,10 @@ app.post("/webhook",(req,res)=>{
                let phon_no_id=body_param.entry[0].changes[0].value.metadata.phone_number_id;
                let from = body_param.entry[0].changes[0].value.messages[0].from;
                let type = body_param.entry[0].changes[0].value.messages[0].type;
-            if type=="text"{
+            if type{
                let msg_body = body_param.entry[0].changes[0].value.messages[0].text.body;
             }
-            if type=="image"{
+            else{
                let imgid = body_param.entry[0].changes[0].value.messages[0].image.id;
                let caption = body_param.entry[0].changes[0].value.messages[0].image.caption;
             }
