@@ -137,15 +137,6 @@ var attachid="";
                });
             
 
-            if (imgid){
-                let url = 'https://graph.facebook.com/v14.0/'+imgid+'?access_token='+token
-                axios.get(url).then(res => {
-                    console.log(res.data)
-                   }).catch(error => {
-                        console.log(error)
-                })
-            }
-
                res.sendStatus(200);
             }else{
                 res.sendStatus(404);
