@@ -82,9 +82,9 @@ app.post("/webhook",(req,res)=>{
           
 
             
-               var sql = "INSERT INTO received_messages (msg_to,msg_from,msg) VALUES ?";
-               var values=[phon_no_id,from,msg_body];
-               con.query(sql,[[[phon_no_id,from,msg_body]]], function (err, result) {  
+               var sql = 'INSERT INTO received_messages (msg_to,msg_from,msg) VALUES ("'+phon_no_id+'" ,"'+from+'" ,"'msg_body'")';
+               //var values=[phon_no_id,from,msg_body];
+               con.query(sql, function (err, result) {  
                 if (err) throw err;  
                 console.log("1 record inserted");  
                });
