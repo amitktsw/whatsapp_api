@@ -61,8 +61,8 @@ app.post("/webhook",(req,res)=>{
             ){
                let phon_no_id=body_param.entry[0].changes[0].value.metadata.phone_number_id;
                let from = body_param.entry[0].changes[0].value.messages[0].from;
-            if body_param.entry[0].changes[0].value.messages[1]{
-                if body_param.entry[0].changes[0].value.messages[1].type="image"{
+            if (body_param.entry[0].changes[0].value.messages[1]){
+                if (body_param.entry[0].changes[0].value.messages[1].type="image"){
                     let imgid = body_param.entry[0].changes[0].value.messages[0].image.id;
                     let caption = body_param.entry[0].changes[0].value.messages[0].image.caption;
                 }
@@ -87,7 +87,7 @@ app.post("/webhook",(req,res)=>{
                console.log("from: "+from);
                
             if body_param.entry[0].changes[0].value.messages[1]{
-                if body_param.entry[0].changes[0].value.messages[1].type="image"{
+                if (body_param.entry[0].changes[0].value.messages[1].type="image"){
                console.log("body param - imageID: "+imgid);
                console.log("body param - caption: "+caption);
                 }else{
