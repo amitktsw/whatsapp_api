@@ -65,7 +65,7 @@ app.post("/webhook",(req,res)=>{
                     var imgid = body_param.entry[0].changes[0].value.messages[0].image.id;
                     var msg_body = "";
                     if(body_param.entry[0].changes[0].value.messages[0].image.caption){
-                        msg_body = body_param.entry[0].changes[0].value.messages[0].document.caption;
+                        msg_body = body_param.entry[0].changes[0].value.messages[0].image.caption;
                     }
                 }else if (body_param.entry[0].changes[0].value.messages[0].type=="document"){
                     var docid = body_param.entry[0].changes[0].value.messages[0].document.id;
@@ -97,7 +97,7 @@ app.post("/webhook",(req,res)=>{
                     console.log("body param - imageID: "+imgid);
                     console.log("body param - caption: "+msg_body);
                 }else if (body_param.entry[0].changes[0].value.messages[0].type=="document"){
-                    console.log("body param - imageID: "+docid);
+                    console.log("body param - docid: "+docid);
                     console.log("body param - caption: "+msg_body);
                 }else{
                 console.log("oady param: "+msg_body);
