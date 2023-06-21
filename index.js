@@ -116,7 +116,7 @@ var attachid="";
           
 
             
-               var sql = 'INSERT INTO received_messages (msg_to,msg_from,msg,attach) VALUES ("'+phon_no_id+'" ,"'+from+'" ,"'+msg_body+'" ,"'+attachid+'")';
+               var sql = 'INSERT INTO received_messages (msg_to,msg_from,msg) VALUES ("'+phon_no_id+'" ,"'+from+'" ,"'+msg_body+'")';
                //var values=[phon_no_id,from,msg_body];
                con.query(sql, function (err, result) {  
                 if (err) throw err;  
