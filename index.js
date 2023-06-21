@@ -22,7 +22,9 @@ require('dotenv').config();
 const app=express().use(body_parser.json());
 
 const token=process.env.TOKEN;
+
 const mytoken=process.env.MYTOKEN;//prasath_token
+console.log(mytoken);
 
 app.listen(process.env.PORT,()=>{
     console.log("webhook is listening");
@@ -33,9 +35,11 @@ app.get("/webhook",(req,res)=>{
    let mode=req.query["hub.mode"];
    let challange=req.query["hub.challenge"];
    let token1=req.query["hub.verify_token"];
+    console.log("token1"ytoken1);
 
 
-    if(mode && token){
+    if(mode && token1){
+        console.log("mytoken"+mytoken);
 
         if(mode==="subscribe" && token1===mytoken){
             res.status(200).send(challange);
