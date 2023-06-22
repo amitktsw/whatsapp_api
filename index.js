@@ -109,7 +109,7 @@ var attachid="";
                     console.log("body param - caption: "+msg_body);
                     attachid=docid;
                 }else{
-                console.log("oady param: "+msg_body);
+                console.log("body param: "+msg_body);
                 }
             
                console.log("TimeStamp: "+time);
@@ -127,7 +127,7 @@ var attachid="";
 
                axios({
                    method:"POST",
-                   url:"https://graph.facebook.com/v13.0/"+phon_no_id+"/messages?access_token="+token,
+                   url:"https://graph.facebook.com/v16.0/"+phon_no_id+"/messages?access_token="+token,
                    data:{
                        messaging_product:"whatsapp",
                        to:from,
