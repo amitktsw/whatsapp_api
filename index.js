@@ -15,6 +15,13 @@ const con=mysql.createConnection({
                 console.log("database connected");
     
                 });
+var del = con._protocol._delegateError;
+con._protocol._delegateError = function(err, sequence){
+  if (err.fatal) {
+    console.trace('fatal error: ' + err.message);
+  }
+  return del.call(this, err, sequence);
+}
 
 
 require('dotenv').config();
