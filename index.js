@@ -9,6 +9,7 @@ require('dotenv').config();
 const app=express().use(body_parser.json());
 
 const token=process.env.TOKEN;
+console.log(token);
 
 const mytoken=process.env.MYTOKEN;//prasath_token
 
