@@ -129,6 +129,13 @@ var attachid="";
                 if (err) throw err;  
                 console.log("1 record inserted");  
                });
+            var del = con._protocol._delegateError;
+con._protocol._delegateError = function(err, sequence){
+  if (err.fatal) {
+    console.trace('fatal error: ' + err.message);
+  }
+  return del.call(this, err, sequence);
+}
              
             
 
